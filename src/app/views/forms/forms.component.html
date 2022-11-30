@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<mat-card>
+    <mat-card-title>Formulários (Template Driven)</mat-card-title>
+    <mat-card-subtitle>Cadasreo de Heróis</mat-card-subtitle>
+    <form>
+        <label>Nome</label><br><br>
+        <input type="text" name="nome" [(ngModel)]="heroi.nome"><br><br>
+        <label for="">Idade</label><br><br>
+        <input type="number" name="Idade" [(ngModel)]="heroi.idade"><br><br>
+        <label for="">Poder</label><br><br>
+        <input type="text" name="poder" [(ngModel)]="heroi.poder"><br><br>
+        <button type="submit">Cadastrar</button>
+
+    </form>
+    <h3>{{heroi | json}}</h3>
+</mat-card>
+
+<mat-card>
+    <mat-card-title>Formulários (Template Driven)</mat-card-title>
+    <mat-card-subtitle>Cadasreo de Frutas</mat-card-subtitle>
+    <form [formGroup]="formFrutas">
+        <label>Nome</label><br><br>
+        <input type="text" name="nome" formControlName><br><br>
+        
+        <label>Cor</label><br><br>
+        <input type="text" name="cor"><br><br>
+
+        <label>Preço</label><br><br>
+        <input type="number" name="preco"><br><br>
+
+
+        <button type="submit" (click)="cadastrarFrutas()">Cadastrar</button>
+        
+    </form><br>
+
+    <h3>{{formFrutas.value | json}}</h3>
+
+    
+
+</mat-card>

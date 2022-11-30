@@ -1,0 +1,49 @@
+<app-header></app-header>
+<mat-card>
+    <mat-card-title>Data binding</mat-card-title>
+    <!-- Interpolation -->
+    <h1>Bem vindo(a), {{user}}!</h1>
+    <!-- Property binding -->
+    <img [src]="image.src" [alt]="image.alt"><br>
+    <!-- One Way Data Binding -->
+    <button (click)="clicar()">Clique aqui</button><br>
+    <!-- Two Way Data Binding -->
+    <input type="text" placeholder="Digite seu nome" [(ngModel)]="user">
+</mat-card><br>
+
+<mat-card>
+    <mat-card-title>Directive</mat-card-title>
+
+    <!-- Diretivas de atributo e Estruturais -->
+    <h2 [ngStyle]="objStyle"> Texto Exemplo 1</h2>
+
+    <h2 [ngClass]="classCor"> Texto Exemplo 2</h2>
+
+    <h2 [ngClass]="{'green': !isError, 'red': isError }"> Texto Exemplo 3</h2>
+
+    <h1>Sapo</h1>
+    <button (click)="mudarSapinho()">Mudar</button><br>
+
+    <img *ngIf="sapo else elseConteiner" src="assets/sapo-1.jpg" alt="Sapinho 1"><br>
+
+    <ng-template #elseConteiner>
+        <img src="assets/sapo-2.jpg" alt="Sapinho 2">
+    </ng-template><br>
+
+    <h2>Peixes</h2>
+    <ul>
+        <li *ngFor="let peixe of peixes; let i = index">{{i}} -> {{peixe}}</li>
+    </ul>
+</mat-card>
+
+<mat-card>
+    <mat-card-title>Pipes</mat-card-title>
+    <h2>{{ textoPipe | uppercase}}</h2>
+    <h2>{{ numPipe | number:'2.2-3'}}</h2>
+    <h2>{{ textoPipe | lowercase}}</h2>
+    <h2>{{ nowPipe | date: 'dd/MM/yyyy HH/mm'}}</h2>
+    <h2>{{ objPipe | json}}</h2>
+</mat-card>
+
+
+<app-footer></app-footer>
